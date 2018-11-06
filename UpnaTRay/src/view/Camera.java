@@ -18,8 +18,10 @@ public class Camera {
 
   // CONSTRUCTORES
   public Camera (final Point3D V, final Point3D C, final Vector3D up) {
-
-
+    this.position = V;
+    this.up= up;
+    this.view = C.sub(V);
+    //this camera2scene = 
   }
 
   public Camera (final Camera c) {
