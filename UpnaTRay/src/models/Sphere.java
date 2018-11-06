@@ -24,7 +24,8 @@ public class Sphere extends Object3D {
 
   @Override
   public Hit intersectionWith (final Ray ray) {
-
+      
+      
     return Hit.NOHIT;
 
   }

@@ -8,7 +8,8 @@ public final class Hit {
 
   static public final Hit NOHIT = new Hit();
  
-  // ATRIBUTOS  
+  // ATRIBUTOS 
+  //Valor del parametro alfa que corresponde al punto de intersección
   private float t;
   private Object3D object;
   private Vector3D normal;
