@@ -19,7 +19,9 @@ public class Camera {
 
   // CONSTRUCTORES
   public Camera (final Point3D V, final Point3D C, final Vector3D up) {
+    optics = null;
     this.position = V;
+    up.normalize();
     this.up= up;
     this.view = C.sub(V);
     this.view.normalize();

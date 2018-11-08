@@ -27,7 +27,8 @@ public class Orthographic extends Projection {
         Point3D R = new Point3D((m+1/2)*(w/W)-W/2,(n+1/2)*(h/H)-H/2,0);
         Vector3D direccion = this.camera.getLook();
         Ray ray = new Ray(R,direccion);
-        return camera.;
+        camera.toSceneCoordenates(ray);
+        return ray;
     }
 
   }
