@@ -8,7 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import view.Camera;
-import lights.LightGroup;
+//Reimportar cuando veamos luces.
+//import lights.LightGroup;
 import models.Group3D;
 import models.Object3D;
 import primitives.Point3D;
