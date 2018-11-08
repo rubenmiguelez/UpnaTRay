@@ -6,6 +6,7 @@ import javax.vecmath.Vector4f;
 import tracer.RayGenerator;
 import primitives.Point3D;
 import primitives.Vector3D;
+import tracer.Ray;
 
 public class Camera {
 
@@ -21,7 +22,14 @@ public class Camera {
     this.position = V;
     this.up= up;
     this.view = C.sub(V);
-    //this camera2scene = 
+    this.view.normalize();
+    Vector3D w = this.view;
+    float s = up.dot(w);
+    float t = (float) (1/(Math.sqrt(1-s*s)));
+    this.camera2scene = new Matrix4f(t*(up.getZ()*w.getY()-up.getY()*w.getZ()),t*(up.getX()-s*w.getX()),-w.getX(),V.getX(),
+                                     t*(up.getX()*w.getZ()-up.getZ()*w.getX()),t*(up.getY()-s*w.getY()),-w.getY(),V.getY(),
+                                     t*(up.getY()*w.getX()-up.getX()*w.getY()),t*(up.getZ()-s*w.getZ()),-w.getZ(),V.getZ(),
+                                     0,0,0,1);
   }
 
   public Camera (final Camera c) {
@@ -40,6 +48,11 @@ public class Camera {
     camera2scene.transform(P);
   }
 
+  public final void toSceneCoordenates(final Ray R){
+      toSceneCoordenates(R.getStartingPoint());
+      toSceneCoordenates(R.getDirection());
+  }
+  
   public final Vector3D getLook () {
     return this.view;
   }
