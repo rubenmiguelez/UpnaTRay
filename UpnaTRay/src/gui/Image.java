@@ -39,7 +39,7 @@ public class Image {
     this.height = h;
     this.width = w;
     this.backgroundColor = c;
-    mosaic = new BufferedImage(height, width, BufferedImage.TYPE_INT_RGB);
+    mosaic = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
   }
 
   // OPERACIONES
@@ -132,7 +132,9 @@ public class Image {
   */
 
   public void putPixel (final int m, final int n, final Color c) {
-    mosaic.setRGB(m, height - 1 - n, c.getRGB());
+      System.out.println(m + " " + (height -1 - n));
+      System.out.println(mosaic.getWidth() + " " + mosaic.getHeight());
+    mosaic.setRGB(m, height -1 - n, c.getRGB());
   }
   
   public Color getColor (final int m, final int n) {

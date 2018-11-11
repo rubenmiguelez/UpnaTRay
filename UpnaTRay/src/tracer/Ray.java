@@ -46,6 +46,7 @@ public class Ray {
   }
 
   public Vector3D getDirection () {
+    this.v.normalize();
     return this.v;
   }
 

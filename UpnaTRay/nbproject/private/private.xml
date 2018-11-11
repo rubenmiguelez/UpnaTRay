@@ -5,13 +5,16 @@
         <group>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/shaders/Material.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/models/Sphere.java</file>
+            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/models/Object3D.java</file>
+            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/tracer/Ray.java</file>
+            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/view/Camera.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/tracer/RayGenerator.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/gui/Image.java</file>
-            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/models/Object3D.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/view/Perspective.java</file>
-            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/tracer/Ray.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/view/Orthographic.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/objects/boundingboxes/BoundingBox.java</file>
+            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/Test/Tester.java</file>
+            <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/models/Group3D.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/view/Angular.java</file>
             <file>file:/C:/Users/ruben/Documents/UpnaTRay/UpnaTRay/src/tracer/Hit.java</file>
         </group>
