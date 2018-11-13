@@ -132,8 +132,7 @@ public class Image {
   */
 
   public void putPixel (final int m, final int n, final Color c) {
-      System.out.println(m + " " + (height -1 - n));
-      System.out.println(mosaic.getWidth() + " " + mosaic.getHeight());
+      System.out.println("Color: "+ c.toString());
     mosaic.setRGB(m, height -1 - n, c.getRGB());
   }
   

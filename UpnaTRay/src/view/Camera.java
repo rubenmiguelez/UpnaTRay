@@ -56,6 +56,7 @@ public class Camera {
   }
   
   public final Vector3D getLook () {
+    this.view.normalize();
     return this.view;
   }
 

@@ -25,7 +25,7 @@ public class Perspective extends Projection {
     @Override
     public Ray getRay (final int m, final int n) {
         Point3D R = camera.getPosition();
-        Vector3D direccion = new Point3D((m+1/2)*(w/W)-(w/2),(n+1/2)*(h/H)-(h/2),-1).sub(R);
+        Vector3D direccion = new Point3D((m+0.5f)*(wW)-(halfw),(n+0.5f)*(hH)-(halfh),-1).sub(R);
         Ray ray = new Ray(R,direccion);
         camera.toSceneCoordenates(ray);
         return ray;
