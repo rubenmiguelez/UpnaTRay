@@ -3,7 +3,7 @@ package primitives;
 import javax.vecmath.Vector3f;
 
 public class Vector3D extends Vector3f {
-
+  static public final Vector3D ZERO_VECTOR = new Vector3D(0,0,0);
   public Vector3D (final float x, final float y, final float z) {
     super(x, y, z);
   }
