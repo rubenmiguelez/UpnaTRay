@@ -26,7 +26,7 @@ public class Tester {
     public static void main(String [] args){
         Image imagen = new Image("prueba",720,1080,Color.BLACK);
         Camera cam = new Camera(new Point3D(0,0,1),new Point3D(0,0,0),new Vector3D(0,1,0));
-        Projection persp = new Angular((float)Math.PI);
+        Projection persp = new Orthographic(8,1.5f);
         cam.setProjection(persp);
         Group3D objetosEscena = new Group3D();
         Sphere esfera = new Sphere(new Point3D(0,0,-8),2,Color.RED);

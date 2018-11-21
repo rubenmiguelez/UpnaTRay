@@ -26,8 +26,16 @@ public class Triangle extends Object3D{
         this.C = C;
         this.n = (B.sub(A).cross(C.sub(A)));
     }
+    public Triangle(Point3D A,Point3D B,Point3D C,Vector3D nA,Vector3D nB,Vector3D nC){
+        super(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)),null);
+        this.A = A;
+        this.B = B;
+        this.C = C;
+        //Modificar para almacenar las tres normales, de momento me vale.
+        this.n = nA.add(nB).add(nC).multiplyByScalar((float)1/3);
+    }
     public Triangle(Point3D A,Point3D B,Point3D C){
-        this(A,B,C,new Color((int)Math.random()*255,(int)Math.random()*255,(int)Math.random()*255),null);
+        this(A,B,C,new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)),null);
   
     }
     
@@ -39,8 +47,28 @@ public class Triangle extends Object3D{
             final float b = (ray.getStartingPoint().sub(A)).dot(n);
             if(Math.signum(b)>=0){
                 //Continuar algoritmo progresivo
+                final Vector3D vAR = ray.getDirection().cross(ray.getStartingPoint().sub(A));
+                final float beta = -((C.sub(A)).dot(vAR))/c;
+                if((beta>=0)&&(1>=beta)){
+                    final float gamma = ((B.sub(A)).dot(vAR))/c;
+                    if((gamma>=0)&&(1>=gamma))
+                        if(1>=(beta+gamma)){
+                            final float a = b/c;
+                            
+                            return (new Hit(0,new Point3D(a,beta,gamma),n,this));
+                        }
+                }
             }
         }
         return Hit.NOHIT;
+    }
+    public Point3D getA(){
+        return A;
+    }
+    public Point3D getB(){
+        return B;
+    }
+    public Point3D getC(){
+        return C;
     }
 }
