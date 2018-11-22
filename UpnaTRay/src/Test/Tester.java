@@ -14,6 +14,7 @@ import models.Group3D;
 import models.Sphere;
 import models.Triangle;
 import models.TriangularMesh;
+import parser.ParserOBJ;
 import primitives.Point3D;
 import primitives.Vector3D;
 import view.Angular;
@@ -30,11 +31,11 @@ public class Tester {
     
     public static void main(String [] args) throws IOException{
         Image imagen = new Image("prueba",720,1080,Color.BLACK);
-        Camera cam = new Camera(new Point3D(-10,10,20),new Point3D(0,0,0),new Vector3D(0,1,0));
-        Projection persp = new Perspective(60f,1.5f);
+        Camera cam = new Camera(new Point3D(0,0,0),new Point3D(-0.5f,0.3f,-1),new Vector3D(0,1,0));
+        Projection persp = new Orthographic(72f,1.5f);
         cam.setProjection(persp);
         Group3D objetosEscena = new Group3D();
-        TriangularMesh triang = new TriangularMesh(parser.ParserOBJ.parse("Car.obj"));
+        TriangularMesh triang = new TriangularMesh(ParserOBJ.parse("pig.obj"));
         Collection<Triangle> triangulos = new LinkedList<>();
         Triangle triangulo = new Triangle(new Point3D(-1,1,-2),new Point3D(-1,-1,0),new Point3D(1,1,0)); 
         Triangle triangulo1 = new Triangle(new Point3D(1,1,0),new Point3D(-1,-1,0),new Point3D(1,-1,0));
