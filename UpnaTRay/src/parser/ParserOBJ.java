@@ -1,4 +1,4 @@
-package objetos;
+package parser;
 /**
  *
  * @author MAZ
@@ -21,7 +21,7 @@ import static primitives.Vector3D.ZERO_VECTOR;
 
 public final class ParserOBJ {
   
-  public Collection<Triangle> parse (final String filename) throws FileNotFoundException, IOException {
+  public static Collection<Triangle> parse (final String filename) throws FileNotFoundException, IOException {
     
     final Collection<Triangle> triangles = new LinkedList<>();
     final Collection<Point3D>     points = new LinkedList<>();
@@ -30,7 +30,7 @@ public final class ParserOBJ {
     
   }
   
-  public void parse (final String filename,
+  public static void parse (final String filename,
                      final Collection<Triangle> triangles,
                      final Collection<Point3D> points) throws FileNotFoundException, IOException {
     

@@ -55,7 +55,7 @@ public class Triangle extends Object3D{
                         if(1>=(beta+gamma)){
                             final float a = b/c;
                             
-                            return (new Hit(0,new Point3D(a,beta,gamma),n,this));
+                            return (new Hit(0,ray.getStartingPoint().add(ray.getDirection().multiplyByScalar(a)),n,this));
                         }
                 }
             }
