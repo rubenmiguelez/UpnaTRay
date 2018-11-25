@@ -21,6 +21,7 @@ public class TriangularMesh extends Object3D{
         
         this.triangulos = triangulos;
         this.points = null;
+        
     }
     public TriangularMesh (final Collection<Point3D> points,final Collection<Triangle> triangulos){
         this.triangulos = triangulos;

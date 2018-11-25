@@ -32,7 +32,8 @@ public class Triangle extends Object3D{
         this.B = B;
         this.C = C;
         //Modificar para almacenar las tres normales, de momento me vale.
-        this.n = nA.add(nB).add(nC).multiplyByScalar((float)1/3);
+        this.n = ((B.sub(A)).cross(C.sub(A)));
+        //this.n = nA.add(nB).add(nC).multiplyByScalar((float)1/3);
     }
     public Triangle(Point3D A,Point3D B,Point3D C){
         this(A,B,C,new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)),null);
@@ -55,7 +56,7 @@ public class Triangle extends Object3D{
                         if(1>=(beta+gamma)){
                             final float a = b/c;
                             
-                            return (new Hit(0,ray.getStartingPoint().add(ray.getDirection().multiplyByScalar(a)),n,this));
+                            return (new Hit(0,A.add((B.sub(A)).multiplyByScalar(beta)).add((C.sub(A)).multiplyByScalar(gamma)),n,this));
                         }
                 }
             }
