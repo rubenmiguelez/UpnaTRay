@@ -6,6 +6,8 @@
 package models;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
 import primitives.Point3D;
 import primitives.Vector3D;
 import shaders.Material;
@@ -71,5 +73,12 @@ public class Triangle extends Object3D{
     }
     public Point3D getC(){
         return C;
+    }
+    public Collection<Point3D> getPoints(){
+        Collection<Point3D> puntos = new ArrayList();
+        puntos.add(A);
+        puntos.add(B);
+        puntos.add(C);
+        return puntos;
     }
 }

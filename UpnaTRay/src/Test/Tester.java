@@ -31,25 +31,33 @@ public class Tester {
     
     public static void main(String [] args) throws IOException{
         Image imagen = new Image("prueba",720,1080,Color.BLACK);
-        Camera cam = new Camera(new Point3D(1,-2,9),new Point3D(0,0,-1),new Vector3D(0,1,0));
+        Camera cam = new Camera(new Point3D(0,0,0),new Point3D(-0.5f,0.3f,-1),new Vector3D(0,1,0));
         Projection persp = new Perspective((float)Math.PI/4f,1.5f);
         cam.setProjection(persp);
         Group3D objetosEscena = new Group3D();
-        TriangularMesh triang = new TriangularMesh(ParserOBJ.parse("Car.obj"));
+        TriangularMesh triang = new TriangularMesh(ParserOBJ.parse("pig.obj"));
         Collection<Triangle> triangulos = new LinkedList<>();
         Triangle triangulo = new Triangle(new Point3D(-1,1,-2),new Point3D(-1,-1,0),new Point3D(1,1,0)); 
         Triangle triangulo1 = new Triangle(new Point3D(1,1,0),new Point3D(-1,-1,0),new Point3D(1,-1,0));
         triangulos.add(triangulo);
         triangulos.add(triangulo1);
-        Sphere esfera = new Sphere(new Point3D(0,0,-8),2,Color.RED);
-        Sphere esfera2 = new Sphere(new Point3D(1,0,-10),3,Color.GREEN);
-        Sphere esfera3 = new Sphere(new Point3D(-3,0,-4),3,Color.CYAN);
-        Sphere esfera4 = new Sphere(new Point3D(4,3,-4),1,Color.MAGENTA);
+        Sphere esfera = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMin,triang.boundingBox.zMin),0.01f,Color.RED);
+        Sphere esfera1 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMin,triang.boundingBox.zMin),0.01f,Color.RED);
+        Sphere esfera2 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMax,triang.boundingBox.zMin),0.01f,Color.RED);
+        Sphere esfera3 = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMax,triang.boundingBox.zMin),0.01f,Color.RED);
+        Sphere esfera4 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMin,triang.boundingBox.zMax),0.01f,Color.RED);
+        Sphere esfera5 = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMin,triang.boundingBox.zMax),0.01f,Color.RED);
+        Sphere esfera6 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMax,triang.boundingBox.zMax),0.01f,Color.RED);
+        Sphere esfera7 = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMax,triang.boundingBox.zMax),0.01f,Color.RED);
         
-        /*objetosEscena.addObject(esfera);
+        objetosEscena.addObject(esfera);
+        objetosEscena.addObject(esfera1);
         objetosEscena.addObject(esfera2);
         objetosEscena.addObject(esfera3);
-        objetosEscena.addObject(esfera4);*/
+        objetosEscena.addObject(esfera4);
+        objetosEscena.addObject(esfera5);
+        objetosEscena.addObject(esfera6);
+        objetosEscena.addObject(esfera7);
         objetosEscena.addObject(triang);
         
         imagen.synthesis(cam, objetosEscena);

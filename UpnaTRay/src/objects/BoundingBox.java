@@ -1,4 +1,4 @@
-package objects.boundingboxes;
+package objects;
 /**
  *
  * @author MAZ

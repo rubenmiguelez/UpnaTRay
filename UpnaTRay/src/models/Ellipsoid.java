@@ -6,7 +6,7 @@ package models;
 
 import java.awt.Color;
 import javax.vecmath.Matrix3f;
-import objects.boundingboxes.BoundingBox;
+import objects.BoundingBox;
 import primitives.Point3D;
 import primitives.Vector3D;
 import tracer.Hit;
