@@ -65,7 +65,7 @@ public class TriangularMesh extends Object3D{
     
     @Override
     public Hit intersectionWith(Ray ray) {
-        //if(boundingBox.intersects(ray)){
+        if(boundingBox.intersects(ray)){
             Hit hit;
             Hit puntoInterseccion = Hit.NOHIT;
             for(Triangle triangle : triangulos){
@@ -79,9 +79,9 @@ public class TriangularMesh extends Object3D{
                     }
             }
             return puntoInterseccion;
-        /*}
+        }
         else 
-            return Hit.NOHIT;*/
+            return Hit.NOHIT;
     }
     
 }

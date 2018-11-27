@@ -41,7 +41,7 @@ public class Tester {
         Triangle triangulo1 = new Triangle(new Point3D(1,1,0),new Point3D(-1,-1,0),new Point3D(1,-1,0));
         triangulos.add(triangulo);
         triangulos.add(triangulo1);
-        Sphere esfera = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMin,triang.boundingBox.zMin),0.01f,Color.RED);
+        /*Sphere esfera = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMin,triang.boundingBox.zMin),0.01f,Color.RED);
         Sphere esfera1 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMin,triang.boundingBox.zMin),0.01f,Color.RED);
         Sphere esfera2 = new Sphere(new Point3D(triang.boundingBox.xMax,triang.boundingBox.yMax,triang.boundingBox.zMin),0.01f,Color.RED);
         Sphere esfera3 = new Sphere(new Point3D(triang.boundingBox.xMin,triang.boundingBox.yMax,triang.boundingBox.zMin),0.01f,Color.RED);
@@ -57,7 +57,7 @@ public class Tester {
         objetosEscena.addObject(esfera4);
         objetosEscena.addObject(esfera5);
         objetosEscena.addObject(esfera6);
-        objetosEscena.addObject(esfera7);
+        objetosEscena.addObject(esfera7);*/
         objetosEscena.addObject(triang);
         
         imagen.synthesis(cam, objetosEscena);
