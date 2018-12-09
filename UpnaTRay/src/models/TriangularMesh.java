@@ -44,18 +44,20 @@ public class TriangularMesh extends Object3D{
                 zMax = triangulo.getA().z;
             }
             for(Point3D punto : triangulo.getPoints()){
-                if(xMin>punto.x)
+                if(xMin>punto.x){
                     xMin = punto.x;
+                }
+                    
                 if(yMin>punto.y)
                     yMin = punto.y;
                 if(zMin>punto.z)
                     zMin = punto.z;
                 if(xMax<punto.x)
-                    xMin = punto.x;
+                    xMax = punto.x;
                 if(yMax<punto.y)
-                    yMin = punto.y;
+                    yMax = punto.y;
                 if(zMax<punto.z)
-                    zMin = punto.z;
+                    zMax = punto.z;
             
             }
         }

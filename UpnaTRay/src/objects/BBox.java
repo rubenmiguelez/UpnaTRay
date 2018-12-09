@@ -37,7 +37,7 @@ public class BBox extends BoundingBox{
             float a = (xMin - R.x)/v.x;
             float dy = Math.abs(R.y + a*v.y - C.y);
             float dz = Math.abs(R.z + a*v.z - C.z);
-            if(Math.signum(dy-(yMax-yMin)*0.5f)>=0 && Math.signum(dz - (zMax-zMin)*0.5f)>=0){
+            if(Math.signum(dy-(yMax-yMin)*0.5f)<=0 && Math.signum(dz - (zMax-zMin)*0.5f)<=0){
                 return true;
             }
             //Cara en plano x = xMax
@@ -53,7 +53,7 @@ public class BBox extends BoundingBox{
             float a = (yMin - R.y)/v.y;
             float dx = Math.abs(R.x + a*v.x - C.x);
             float dz = Math.abs(R.z + a*v.z - C.z);
-            if(Math.signum(dx-(xMax-xMin)*0.5f)>=0 && Math.signum(dz - (zMax-zMin)*0.5f)>=0){
+            if(Math.signum(dx-(xMax-xMin)*0.5f)<=0 && Math.signum(dz - (zMax-zMin)*0.5f)<=0){
                 return true;
             }
             //Cara en plano y = yMax
@@ -69,7 +69,7 @@ public class BBox extends BoundingBox{
             float a = (zMin - R.z)/v.z;
             float dx = Math.abs(R.x + a*v.x - C.x);
             float dy = Math.abs(R.y + a*v.y - C.y);
-            if(Math.signum(dx-(xMax-xMin)*0.5f)>=0 && Math.signum(dy - (yMax-yMin)*0.5f)>=0){
+            if(Math.signum(dx-(xMax-xMin)*0.5f)<=0 && Math.signum(dy - (yMax-yMin)*0.5f)<=0){
                 return true;
             }
             //Cara en plano z = zMax

@@ -16,11 +16,20 @@ import tracer.Ray;
 public class Torus extends ProceduralObject3D {
    
   static private final Point3D O = new Point3D(0.0f, 0.0f, 0.0f);
-  
+  final Point3D C;
+  final Vector3D v;
+  final float R;
+  final float r;
   private Torus (final Point3D C, final Vector3D v,
                  final float R, final float r,
                  final Color color, final Material material) {
     super(color, material);
+    this.C = C;
+    v.normalize();
+    this.v = v;
+    this.R = R;
+    this.r = r;
+            
   }   
 
   public Torus () {
@@ -43,7 +52,10 @@ public class Torus extends ProceduralObject3D {
 
   @Override
   public Hit intersectionWith (final Ray ray) {
-
+    Sphere sphere = new Sphere(C,R+r);
+    if(sphere.intersectionWith(ray)!= Hit.NOHIT){
+        //TODO interseccion con toro
+    }
     return Hit.NOHIT;
 
   }

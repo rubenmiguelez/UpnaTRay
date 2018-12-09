@@ -28,11 +28,17 @@ public class Angular extends Projection {
 
     @Override
     public Ray getRay (final int m, final int n) {
-        Point3D R = camera.getPosition();
-        Vector3D direccion = new Point3D((m+1/2)*(w/W)-(w/2),(n+1/2)*(h/H)-(h/2),-1).sub(R);
-        Ray ray = new Ray(R,direccion);
-        camera.toSceneCoordenates(ray);
-        return ray;
+        if((m-W/2)*(m-W/2)+(n-H/2)*(n-H/2) <= (H/2)*(H/2)){
+            Point3D R = camera.getPosition();
+            Vector3D direccion = new Point3D((m+1f/2f)*(w/W)-(w/2),(n+1f/2f)*(h/H)-(h/2),-1).sub(R);
+            Ray ray = new Ray(R,direccion);
+            camera.toSceneCoordenates(ray);
+            return ray;
+        }
+        else{
+            return new Ray(camera.getPosition(),new Vector3D(0,0,0));
+        }
+        
 
     }
 

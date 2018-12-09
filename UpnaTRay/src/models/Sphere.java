@@ -22,6 +22,11 @@ public class Sphere extends Object3D {
     this.C = C;
     this.radio = radio;
   }
+  public Sphere (final Point3D C, final float radio) {
+    this(C, radio, null, null);
+    this.C = C;
+    this.radio = radio;
+  }
   
   public Sphere (final Point3D C, final float radio, final Material material) {
     this(C, radio, null, material);
