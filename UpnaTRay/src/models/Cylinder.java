@@ -67,12 +67,19 @@ public class Cylinder extends Object3D {
                 Point3D H2 = R.add(v.multiplyByScalar(tOut));
                 if(tIn>=0){
                     if((r*r+(L/2f)*(L/2f))>=(B.sub(H1).length()*B.sub(H1).length())){
-                        Vector3D n = ((H1.sub(B)).sub(u.multiplyByScalar(Math.abs((H1.sub(B).dot(u)))))).multiplyByScalar(1/r);
-                        return(new Hit(tIn,H1,n,this));
+                        
+                        Vector3D H1aB = H1.sub(B);
+                        float cosAlpha = (H1aB.dot(u))/(H1aB.length()*u.length());
+                        float a = Math.abs(H1.sub(B).length()*cosAlpha);
+                        Point3D N = B.add(u.multiplyByScalar(a));
+                        
+                        Vector3D n = H1.sub(N);
+                        
+                        return(new Hit(tIn,H1,n.multiplyByScalar(1f/n.length()),this));
                     }
                     else if((r*r+(L/2f)*(L/2f))>=(B.sub(H2).length()*B.sub(H2).length())){
                         //Intersecta tapa.
-                        /*if(H1.sub(B.add(u.multiplyByScalar(L/2))).length()<= H1.sub(B.add(u.multiplyByScalar(-L/2))).length()){
+                        if(H1.sub(B.add(u.multiplyByScalar(L/2))).length()<= H1.sub(B.add(u.multiplyByScalar(-L/2))).length()){
                             Plane planoTapa = new Plane(B.add(u.multiplyByScalar(L/2)),u);
                             Hit hit = planoTapa.intersectionWith(ray);
                             if(!hit.equals(Hit.NOHIT)){
@@ -87,7 +94,7 @@ public class Cylinder extends Object3D {
                                 hit.setObject(this);
                                 return hit;
                             }
-                        }*/
+                        }
 
                     }
                     else{
@@ -96,7 +103,7 @@ public class Cylinder extends Object3D {
                 }
                 else if(0>=tIn && tOut>=0){
                     //TAPAS
-                    /*if(R.sub(B.add(u.multiplyByScalar(L/2))).length()<= R.sub(B.add(u.multiplyByScalar(-L/2))).length()){
+                    if(R.sub(B.add(u.multiplyByScalar(L/2))).length()<= R.sub(B.add(u.multiplyByScalar(-L/2))).length()){
                         Plane planoTapa = new Plane(B.add(u.multiplyByScalar(L/2)),u);
                         Hit hit = planoTapa.intersectionWith(ray);
                         if(!hit.equals(Hit.NOHIT)){
@@ -117,7 +124,7 @@ public class Cylinder extends Object3D {
                             else
                                 return Hit.NOHIT;
                         }
-                    }*/
+                    }
                     
                 }
             }

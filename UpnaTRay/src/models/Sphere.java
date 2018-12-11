@@ -64,7 +64,7 @@ public class Sphere extends Object3D {
                   //El rayo intersecta con la bola, necesitamos conocer su punto de entrada 
                   final float FP = (float) Math.sqrt(this.radio*this.radio - CF*CF);
                   final Point3D P = F.add(ray.getDirection().multiplyByScalar(-FP));
-                  final Vector3D normal = this.C.sub(P);
+                  final Vector3D normal = P.sub(this.C);
                   normal.normalize();
                   Hit hit = new Hit(0,P,normal,this);
                   return hit;

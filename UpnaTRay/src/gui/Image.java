@@ -70,8 +70,13 @@ public class Image {
           if (hit.hits()) {
 
             final Object3D object = hit.getObject();
+            float intensity = (camera.getLook().multiplyByScalar(-1).dot(hit.getNormal()));
+            
+            if(intensity<=0)
+                intensity = 0;
+            //System.out.println(intensity);
             // Obtiene el color para el pixel directamente del objeto            
-            putPixel(m, n, object.getColor());
+            putPixel(m, n, new Color((int)((float)object.getColor().getRed()*intensity),(int)((float)object.getColor().getGreen()*intensity),(int)((float)object.getColor().getBlue()*intensity)));
 
           } else
             putPixel(m, n, background);

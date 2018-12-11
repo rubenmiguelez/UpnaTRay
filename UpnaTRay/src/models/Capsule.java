@@ -66,8 +66,10 @@ public class Capsule extends Object3D {
                 Point3D H2 = R.add(v.multiplyByScalar(tOut));
                 if(tIn>=0){
                     if((r*r+(L/2f)*(L/2f)) >=(B.sub(H1).length()*B.sub(H1).length())){
-                        Vector3D n = ((H1.sub(B)).sub(u.multiplyByScalar(Math.abs((H1.sub(B).dot(u)))))).multiplyByScalar(1/r);
-                        return(new Hit(tIn,H1,n,this));
+                        Point3D N = B.add(u.multiplyByScalar(Math.abs(H1.sub(B).dot(u))));
+                        Vector3D n = (H1.sub(N).multiplyByScalar(1f/r));
+                        
+                        return(new Hit(tIn,H1,n.multiplyByScalar(1f/n.length()),this));
                     }
                     else{
                         //Intersecta tapa.

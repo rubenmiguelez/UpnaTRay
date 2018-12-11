@@ -29,16 +29,16 @@ public class Triangle extends Object3D{
         this.n = (B.sub(A).cross(C.sub(A)));
     }
     public Triangle(Point3D A,Point3D B,Point3D C,Vector3D nA,Vector3D nB,Vector3D nC){
-        super(new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)),null);
+        super(Color.GREEN,null);
         this.A = A;
         this.B = B;
         this.C = C;
         //Modificar para almacenar las tres normales, de momento me vale.
-        this.n = ((B.sub(A)).cross(C.sub(A)));
+        this.n = (B.sub(A).cross(C.sub(A)));
         //this.n = nA.add(nB).add(nC).multiplyByScalar((float)1/3);
     }
     public Triangle(Point3D A,Point3D B,Point3D C){
-        this(A,B,C,new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)),null);
+        this(A,B,C,Color.GREEN,null);
   
     }
     
@@ -57,8 +57,7 @@ public class Triangle extends Object3D{
                     if((gamma>=0)&&(1>=gamma))
                         if(1>=(beta+gamma)){
                             final float a = b/c;
-                            
-                            return (new Hit(0,A.add((B.sub(A)).multiplyByScalar(beta)).add((C.sub(A)).multiplyByScalar(gamma)),n,this));
+                            return (new Hit(0,A.add((B.sub(A)).multiplyByScalar(beta)).add((C.sub(A)).multiplyByScalar(gamma)),n.multiplyByScalar(1f/n.length()),this));
                         }
                 }
             }
